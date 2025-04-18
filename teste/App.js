@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const App = ()=>{
     return (
         <View>
-            <Text>
+            <Text style={{fontSize:25,color:'blue', textAlign:'center'}}>
                 Olá programadores, tudo bem?
             </Text>
         </View>
