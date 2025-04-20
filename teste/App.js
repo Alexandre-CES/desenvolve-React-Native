@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { View, Text, Image, ScrollView, FlatList } from 'react-native';
+import { View, Text, Image, ScrollView, FlatList, TextInput } from 'react-native';
 
 const App = ()=>{
     return (
@@ -23,9 +23,17 @@ const App = ()=>{
                 data={[{key:'Arroz'}, {key:'feijão'}, {key:'açucar'}]}
                 renderItem={({item}) => <Text>{item.key}</Text>}
             />
-            <Image 
-                source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/250px-React-icon.svg.png'}}
-                style={{width:400, height:400, marginTop:100}}
+            <TextInput
+                placeholder='Digite seu nome'
+                placeholderTextColor={'black'}
+                style={{
+                    height:40,
+                    borderColor:'Gray',
+                    borderWidth:1,
+                    backgroundColor:'#69BFEF',
+                    color:'black'
+                }}
+                
             />
             
         </View>
