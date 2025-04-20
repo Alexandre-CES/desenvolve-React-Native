@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { View, Text, Image, ScrollView, FlatList, TextInput } from 'react-native';
+import { View, Text, Image, ScrollView, FlatList, TextInput, Button } from 'react-native';
 
 const App = ()=>{
     return (
@@ -33,8 +33,14 @@ const App = ()=>{
                     backgroundColor:'#69BFEF',
                     color:'black'
                 }}
-                
             />
+
+            <View style={{marginTop:20}}>
+                <Button
+                    title='Cadastrar'
+                    onPress={() => alert('Cadastro concluído com sucesso!')}
+                />
+            </View>
             
         </View>
         </ScrollView>
