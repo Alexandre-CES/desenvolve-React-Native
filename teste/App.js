@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { View, Text, Image, ScrollView, FlatList, TextInput, Button } from 'react-native';
+import { View, Text, Image, ScrollView, FlatList, TextInput, Button, TouchableOpacity } from 'react-native';
 
 const App = ()=>{
     return (
@@ -40,6 +40,11 @@ const App = ()=>{
                     title='Cadastrar'
                     onPress={() => alert('Cadastro concluído com sucesso!')}
                 />
+            </View>
+            <View style={{marginTop:20}}>
+                <TouchableOpacity onPress={() => alert('Cadastro realizado com sucesso!')}>
+                    <Text style={{color:'red', fontSize:20, backgroundColor:'yellow'}}>Cadastrar2</Text>
+                </TouchableOpacity>
             </View>
             
         </View>
