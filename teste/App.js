@@ -1,5 +1,16 @@
 import { React } from 'react';
-import { View, Text, Image, ScrollView, FlatList, TextInput, Button, TouchableOpacity } from 'react-native';
+import { 
+    View,
+    Text, 
+    Image, 
+    ScrollView, 
+    FlatList, 
+    TextInput, 
+    Button, 
+    TouchableOpacity,
+    Switch,
+    ActivityIndicator
+} from 'react-native';
 
 const App = ()=>{
     return (
@@ -45,6 +56,13 @@ const App = ()=>{
                 <TouchableOpacity onPress={() => alert('Cadastro realizado com sucesso!')}>
                     <Text style={{color:'red', fontSize:20, backgroundColor:'yellow'}}>Cadastrar2</Text>
                 </TouchableOpacity>
+
+                <Switch value={true} onValueChange={(value)=>{
+                    
+                }}/>
+
+                <ActivityIndicator size={'large'} color={'blue'}/>
+
             </View>
             
         </View>
