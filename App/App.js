@@ -8,6 +8,28 @@ import {
 } from "react-native";
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            numero : 0,
+            botao : 'Iniciar',
+            ultimo: null
+        };
+        this.tempo = null;
+        this.inicio = this.inicio.bind(this);
+        this.limpar = this.limpar.bind(this);
+    
+
+        if(this.tempo != null){
+            clearInterval(this.tempo);
+            this.tempo = null;
+            this.setState({botao:'iniciar'});
+        }else{
+            this.setInterval(() => {
+                this.setState({numero:this.state.numero + 0.1})
+            }, 100);
+        }
+    }
     render(){
         return(
             <View style={styles.container}>
