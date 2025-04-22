@@ -10,19 +10,42 @@ import {
 class App extends Component{
     render(){
         return(
-            <View style={StyleSheet.container}>
+            <View style={styles.container}>
 
-                <Text style={StyleSheet.titulo}>Cronômetro</Text>
+                <Text style={styles.titulo}>Cronômetro</Text>
                 <Image 
                 source={require('./src/cronometro.png')}
-                style={StyleSheet.crono}
+                style={styles.crono}
                 />
 
-                <Text style={StyleSheet.tempo}>0.0</Text>
+                <Text style={styles.tempo}>0.0</Text>
 
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+    container:{
+        flex:1,
+        alignItems:'center',
+        backgroundColor:'orange',
+        justifyContent:'center'
+    },
+    crono:{
+        width:400,
+        height:400
+    },
+    titulo:{
+        fontSize:50,
+        fontWeight:'600'
+    },
+    tempo:{
+        marginTop:-210,
+        fontSize:60,
+        fontWeight:'700'
+    }
+})
 
 export default App;
