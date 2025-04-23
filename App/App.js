@@ -19,31 +19,43 @@ class App extends Component{
         this.inicio = this.inicio.bind(this);
         this.limpar = this.limpar.bind(this);
     
-
+    }
+    
+    inicio(){
         if(this.tempo != null){
             clearInterval(this.tempo);
             this.tempo = null;
             this.setState({botao:'iniciar'});
         }else{
-            this.setInterval(() => {
-                this.setState({numero:this.state.numero + 0.1})
+            this.tempo = setInterval(() => {
+                this.setState({numero:this.state.numero + 0.1});
             }, 100);
         }
+
+        this.setState({botao:'Parar'});
     }
+
+    limpar(){
+
+    }
+    
     render(){
         return(
             <View style={styles.container}>
 
                 <Text style={styles.titulo}>Cronômetro</Text>
                 <Image 
-                source={require('./src/cronometro.png')}
-                style={styles.crono}
+                    source={require('./src/cronometro.png')}
+                    style={styles.crono}
                 />
 
-                <Text style={styles.tempo}>0.0</Text>
+                <Text style={styles.tempo}>{this.state.numero.toFixed(1)}</Text>
 
                 <View style={styles.areaBotao}>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity
+                        style={styles.btn}
+                        onPress={this.inicio}
+                    >
                         <Text style={styles.botaoTexto}>Iniciar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.btn}>
