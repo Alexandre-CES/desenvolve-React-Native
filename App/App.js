@@ -30,13 +30,20 @@ class App extends Component{
             this.tempo = setInterval(() => {
                 this.setState({numero:this.state.numero + 0.1});
             }, 100);
+            this.setState({botao:'Parar'});
         }
-
-        this.setState({botao:'Parar'});
     }
 
     limpar(){
-
+        if(this.tempo != null){
+            clearInterval(this.tempo);
+            this.tempo = null;
+        }
+        this.setState({
+            tempo1 : this.state.numero,
+            numero: 0,
+            botao:'Iniciar'
+        })
     }
     
     render(){
@@ -56,11 +63,20 @@ class App extends Component{
                         style={styles.btn}
                         onPress={this.inicio}
                     >
-                        <Text style={styles.botaoTexto}>Iniciar</Text>
+                        <Text style={styles.botaoTexto}>{this.state.botao}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity 
+                        style={styles.btn}
+                        onPress={this.limpar}
+                    >
                         <Text style={styles.botaoTexto}>Limpar</Text>
                     </TouchableOpacity>
+                </View>
+
+                <View>
+                    <Text style={styles.textoTempo}>
+                        {this.state.tempo1 != null && this.state.tempo1 > 0 ? 'Último tempo: '+this.state.tempo1.toFixed(3) : ''}
+                    </Text>
                 </View>
             </View>
         );
@@ -103,6 +119,9 @@ const styles = StyleSheet.create({
     areaBotao:{
         flexDirection:'row',
         marginTop:100,
+    },
+    textoTempo:{
+        fontSize:30,
     }
 })
 
