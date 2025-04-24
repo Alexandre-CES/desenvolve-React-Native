@@ -1,19 +1,28 @@
-import React, { Component } from "react";
+import { useEffect, useState } from "react";
 import { 
     View,
     StyleSheet,
     Text
 } from "react-native";
 import { db } from "./src/firebaseConnection";
+import {doc, onSnapshot} from 'firebase/firestore';
 
-
-export default function Fire(){
-    
-    
+export default function App(){
+    const [nome, setNome] = 
+        useState('Carregando...');
+        useEffect (() => {
+            async function getDados() {
+                onSnapshot(doc(db,'usuario','1'),(doc)=>{
+                    setNome(doc.data()?.nome);
+                })
+            }
+            getDados();
+        }, []
+        )
     
     return(
         <View style={styles.container}>
-            <Text style={{fontSize:24}}>Firebase</Text>
+            <Text style={{fontSize:24}}>Usuario: {nome}</Text>
             
         </View>
     );
