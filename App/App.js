@@ -4,6 +4,8 @@ import {
     StyleSheet,
     Text
 } from "react-native";
+import { db } from "./src/firebaseConnection";
+
 
 export default function Fire(){
     
